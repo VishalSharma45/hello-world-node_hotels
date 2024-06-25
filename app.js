@@ -2,8 +2,10 @@ const express = require("express");
 const app = express();
 const db = require("./db");
 const bodyParser = require("body-parser");
+require('dotenv').config();
 
 const MenuItem = require("./models/MenuItem");
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 
@@ -18,4 +20,4 @@ const menuRoutes = require('./routes/menuRoutes');
 app.use('/person', personRoutes);
 app.use('/menu', menuRoutes);
 
-app.listen(8000);
+app.listen(PORT);
